@@ -9,16 +9,16 @@ import Foundation
 
 func solve(arr: [Int], queries: [Int]) -> [Int] {
     for q in queries {
-        for i in 0..<arr.count - 1 {
+        var metaArr = [[Int]]()
+        for i in 0..<arr.count - (q - 1) {
             var subArr = [Int]()
             for j in 0..<q {
                 subArr.append(arr[i + j])
             }
-            print(subArr)
+            metaArr.append(subArr)
         }
+        print(metaArr)
     }
-    
-    
     
     return [0]
 }
