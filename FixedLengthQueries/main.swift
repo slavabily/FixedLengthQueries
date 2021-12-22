@@ -8,6 +8,7 @@
 import Foundation
 
 func solve(arr: [Int], queries: [Int]) -> [Int] {
+    var resArr = [Int]()
     for q in queries {
         var metaArr = [[Int]]()
         for i in 0..<arr.count - (q - 1) {
@@ -17,10 +18,13 @@ func solve(arr: [Int], queries: [Int]) -> [Int] {
             }
             metaArr.append(subArr)
         }
-        print(metaArr)
+        let maxArr = metaArr.map {$0.max()!}
+        print(maxArr.min()!)
+        resArr.append(maxArr.min()!)
     }
+    print(resArr)
     
-    return [0]
+    return resArr
 }
 
 print(solve(arr: [2,3,4,5,6], queries: [2,3]))
